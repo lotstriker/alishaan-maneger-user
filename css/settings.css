@@ -1,0 +1,246 @@
+/* ============================================================
+   ALISHAN · SETTINGS / NOTIFICATIONS / BACKUP / ARCHIVE
+   ============================================================ */
+
+/* ---------- Settings layout (sidebar + content) ---------- */
+.settings-layout {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 18px;
+  align-items: flex-start;
+}
+.settings-nav {
+  position: sticky;
+  top: 90px;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.settings-nav button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: .85rem;
+  transition: all var(--transition);
+}
+.settings-nav button:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.settings-nav button.active {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+@media (max-width: 720px) {
+  .settings-layout { grid-template-columns: 1fr; }
+  .settings-nav {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 6px;
+  }
+  .settings-nav button { white-space: nowrap; }
+}
+
+/* ---------- Section ---------- */
+.setting-section {
+  padding: 18px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.setting-section .section-title { margin-bottom: 6px; }
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.setting-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.setting-row:first-of-type { padding-top: 6px; }
+.setting-row > div:first-child { flex: 1 1 200px; min-width: 0; }
+.setting-row strong {
+  display: block;
+  font-size: .92rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.setting-row small {
+  display: block;
+  color: var(--text-muted);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+.setting-row select,
+.setting-row input[type="text"],
+.setting-row input[type="email"],
+.setting-row input[type="time"] {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: .85rem;
+  min-width: 130px;
+}
+.setting-row select:focus,
+.setting-row input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  outline: none;
+}
+
+/* Accent swatches */
+.accent-swatches {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.accent-swatches button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: transform var(--transition), border-color var(--transition);
+  position: relative;
+}
+.accent-swatches button:hover { transform: scale(1.1); }
+.accent-swatches button.active {
+  border-color: var(--text);
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 4px var(--text);
+}
+.accent-swatches button.active::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: .9rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+/* Quick actions row */
+.quick-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Backup page ---------- */
+.backup-calendar {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  background: var(--surface);
+}
+.backup-calendar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.backup-calendar-head strong {
+  font-size: .92rem;
+  letter-spacing: .02em;
+}
+.backup-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: .72rem;
+}
+.backup-calendar-grid .dow {
+  text-align: center;
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 3px 0;
+}
+.backup-calendar-grid .day {
+  text-align: center;
+  padding: 6px 2px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  position: relative;
+}
+.backup-calendar-grid .day.today {
+  color: var(--accent);
+  font-weight: 800;
+}
+.backup-calendar-grid .day.has-backup::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.storage-bar {
+  margin: 8px 0;
+  height: 10px;
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.storage-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: inherit;
+}
+
+/* ---------- Archive page ---------- */
+.archive-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.archive-item > div:first-child { flex: 1 1 220px; min-width: 0; }
+.archive-item .archived-meta {
+  color: var(--text-muted);
+  font-size: .75rem;
+  margin-top: 3px;
+}
+.archive-item .row-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Responsive tweaks */
+@media (max-width: 540px) {
+  .setting-row select,
+  .setting-row input[type="text"],
+  .setting-row input[type="email"],
+  .setting-row input[type="time"] {
+    min-width: 100px;
+    font-size: .8rem;
+  }
+  .accent-swatches button { width: 28px; height: 28px; }
+}

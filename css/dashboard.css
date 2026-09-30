@@ -1,0 +1,172 @@
+/* ============================================================
+   ALISHAN · DASHBOARD
+   ============================================================ */
+
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.page-content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 24px 22px 60px;
+  width: 100%;
+}
+
+.page-head {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 15px; margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.page-head h1 { margin-bottom: 4px; }
+.page-head p { font-size: .9rem; }
+.eyebrow {
+  color: var(--accent); font-size: .68rem; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(14px);
+}
+.topbar-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  min-height: var(--header-h);
+  display: flex; align-items: center; gap: 18px;
+  padding: 0 22px;
+  flex-wrap: wrap;
+}
+.topbar .brand { display: flex; align-items: center; gap: 10px; }
+.topbar .brand-mark {
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%; color: var(--accent);
+  font-size: 15px;
+}
+.topbar .brand-name {
+  font-size: .78rem; font-weight: 800;
+  letter-spacing: .16em; line-height: 1.1;
+}
+.topbar .brand-sub {
+  font-size: .6rem; color: var(--text-muted);
+  letter-spacing: .04em;
+}
+.topbar .nav { display: flex; gap: 2px; flex: 1; }
+.topbar .nav button {
+  padding: 8px 12px; border-radius: var(--radius-sm);
+  background: transparent; color: var(--text-muted);
+  font-weight: 700; font-size: .82rem;
+  transition: all var(--transition);
+}
+.topbar .nav button:hover { color: var(--accent); background: var(--accent-soft); }
+.topbar .nav button.active { color: var(--accent); background: var(--accent-soft); }
+
+.topbar .sync {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 11px; border-radius: var(--radius-sm);
+  background: transparent; color: var(--text-muted);
+  font-size: .72rem; font-weight: 700;
+  border: 1px solid transparent;
+}
+.topbar .sync:hover { background: var(--surface-2); border-color: var(--line); }
+.sync-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+}
+
+.topbar .user-menu {
+  display: flex; align-items: center; gap: 8px;
+  padding-left: 14px; border-left: 1px solid var(--line);
+}
+.topbar .avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  font-weight: 800; font-size: .72rem;
+}
+.topbar .user-menu .name {
+  font-size: .82rem; font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .topbar .user-menu .name { display: none; }
+}
+
+/* Toolbar (search/filter/sort) */
+.toolbar {
+  display: flex; gap: 8px; align-items: center;
+  flex-wrap: wrap; margin: 22px 0 12px;
+}
+.toolbar .search { flex: 1 1 260px; min-width: 0; }
+.toolbar .btn { padding: 10px 13px; font-size: .82rem; }
+.toolbar select.btn { padding-right: 28px; cursor: pointer; }
+
+.filter-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin: 0 0 14px;
+}
+
+/* Add Quality form */
+.form-card { padding: var(--space-5); margin-top: 12px; }
+.form-card .section-title { margin-bottom: 16px; }
+.form-card .form-grid { gap: 14px; }
+
+.accordion {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+.accordion summary {
+  padding: 12px 14px;
+  cursor: pointer; list-style: none;
+  font-weight: 700; font-size: .85rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::before { content: ''; margin-right: 4px; }
+.accordion[open] summary { color: var(--accent); background: var(--accent-soft); }
+.accordion-content { padding: 14px; border-top: 1px solid var(--line); }
+
+.form-actions {
+  display: flex; gap: 8px; justify-content: flex-end;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.panel { padding: var(--space-5); }
+
+/* Pagination */
+.pagination {
+  display: flex; justify-content: center; gap: 4px;
+  margin-top: 20px; flex-wrap: wrap;
+}
+.pagination button {
+  min-width: 34px; height: 34px; padding: 0 10px;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); color: var(--text-muted);
+  font-weight: 700; font-size: .82rem;
+  transition: all var(--transition);
+}
+.pagination button:hover { border-color: var(--accent); color: var(--accent); }
+.pagination button.active {
+  background: var(--accent-soft); border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Section title */
+.section-title {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.section-title h2 { font-size: 1.1rem; }
+.section-title p { font-size: .82rem; margin-top: 3px; }
+
+/* Record list */
+.record-list { display: flex; flex-direction: column; gap: 10px; }

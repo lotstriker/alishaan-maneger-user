@@ -1,0 +1,232 @@
+/* ============================================================
+   ALISHAN · REPORTS
+   ============================================================ */
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  margin: 20px 0 18px;
+  padding-bottom: 0;
+  scrollbar-width: thin;
+}
+.tabs button {
+  background: transparent;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-weight: 600;
+  font-size: .85rem;
+  transition: color var(--transition), border-color var(--transition);
+}
+.tabs button:hover { color: var(--accent); }
+.tabs button.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 800;
+}
+
+/* Chart wrappers */
+.chart-wrap {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-size: .75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.chart-legend.vertical {
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.chart-legend span i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: none;
+}
+
+/* Doughnut wrapper */
+.doughnut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* Gauge wrapper */
+.gauge-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* Horizontal bar chart */
+.hbar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+}
+.hbar-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 80px;
+  gap: 10px;
+  align-items: center;
+  font-size: .8rem;
+}
+.hbar-label {
+  color: var(--text-muted);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hbar-track {
+  height: 12px;
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.hbar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 300ms;
+}
+.hbar-value {
+  text-align: right;
+  font-weight: 800;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Report rows */
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.report-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.report-row strong { font-size: .88rem; font-weight: 700; }
+.report-row span { color: var(--text-muted); font-size: .78rem; }
+.report-row .row-actions {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+/* Report period card (stat-box 5 columns is native) */
+.report-period-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.report-period-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.report-period-head strong { font-size: .92rem; }
+.report-period-head .range { color: var(--text-muted); font-size: .75rem; }
+
+/* Aging row colours (left border severity) */
+.aging-row {
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+.aging-row.sev-1 { border-left-color: #CED14E; }
+.aging-row.sev-2 { border-left-color: #E98E2E; }
+.aging-row.sev-3 { border-left-color: #D8524F; }
+.aging-row.sev-4 { border-left-color: #973130; }
+
+/* Filter bar (top of reports) */
+.report-filters {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 14px;
+}
+.report-filters .field { flex: 1 1 180px; min-width: 0; }
+.report-filters .form-actions {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+}
+
+/* Chart type switcher (for Compare Periods) */
+.chart-type-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+.chart-type-switch button {
+  padding: 6px 12px;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  border-right: 1px solid var(--line);
+  background: transparent;
+  transition: all var(--transition);
+}
+.chart-type-switch button:last-child { border-right: 0; }
+.chart-type-switch button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Compare header */
+.compare-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.compare-head strong { font-size: .92rem; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hbar-row { grid-template-columns: 80px 1fr 60px; font-size: .72rem; }
+  .doughnut-wrap { gap: 16px; }
+  .tabs button { padding: 9px 10px; font-size: .78rem; }
+}

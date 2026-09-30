@@ -1,0 +1,34 @@
+/* Missing styles: colours, size grid, record detail, edit mode */
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid var(--line-strong);flex:none}
+.color-search input{width:100%}
+.selected-colors{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.color-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:var(--radius-pill);border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:.8rem}
+.swatches{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;max-height:220px;overflow:auto}
+.swatch,.color-cell-btn{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:.85rem;text-align:left}
+.swatch.selected,.color-cell-btn.on{border-color:var(--accent);background:var(--accent-soft)}
+.colour-display,.edit-colors{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.color-cell{flex:1 1 25%;min-width:70px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;border-right:1px solid var(--line);font-size:.8rem}
+.edit-colors{gap:6px;border:0}
+.size-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.size-inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0;padding:8px;border:1px solid var(--line);border-radius:var(--radius-sm)}
+.size-inputs label,.size-inputs input{width:100%;font-size:.8rem}
+.live-total{display:flex;justify-content:space-between;padding:10px 12px;border-radius:var(--radius-sm);background:var(--surface-2);font-weight:800}
+.size-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.size-box{border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;text-align:center;background:var(--surface)}
+.size-label{padding:4px;font-weight:800;background:var(--surface-2)}
+.size-box .nums{display:grid;grid-template-columns:1fr 1fr}
+.size-box .nums>div{padding:6px 2px;font-weight:700;border-right:1px solid var(--line)}
+.size-box .nums>div:last-child{border-right:0}
+.size-box small{display:block;font-size:.62rem;color:var(--text-muted);font-weight:500}
+.size-box.editable input{width:100%;padding:4px;text-align:center}
+.total-row{display:flex;justify-content:space-between;margin-top:10px}
+.color-group{margin:12px 0}.color-group-head,.color-group-head-inline{margin-bottom:8px}
+.expanded{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.expanded h4{margin:14px 0 8px;font-size:.85rem;color:var(--text-muted)}
+.actions,.edit-actions,.edit-head{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:12px}
+.actions .btn{flex:1}
+.notes{padding:10px;border-radius:var(--radius-sm);background:var(--surface-2)}
+.history-list{display:grid;gap:6px;margin-top:8px}.history-row{display:flex;gap:8px;flex-wrap:wrap;font-size:.78rem}
+.owner-row{font-size:.8rem;color:var(--text-muted);margin:4px 0}
+.record-foot{display:flex;justify-content:space-between;margin-top:8px}.record-foot .amount{font-weight:800;color:var(--accent)}
+.lot.italic{font-style:italic}

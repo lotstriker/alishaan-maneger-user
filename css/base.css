@@ -1,0 +1,219 @@
+/* ============================================================
+   ALISHAN · BASE
+   Variables, themes, reset, typography, layout primitives
+   ============================================================ */
+
+:root {
+  /* Light theme (default) */
+  --bg:            #f5f7f8;
+  --surface:       #ffffff;
+  --surface-2:     #eef2f3;
+  --surface-3:     #e4eaec;
+  --text:          #172126;
+  --text-muted:    #6d7a80;
+  --text-faint:    #9aa6ac;
+  --line:          #dbe3e6;
+  --line-strong:   #c4ced2;
+
+  --accent:        #2f8fa6;
+  --accent-soft:   #e2f2f5;
+
+  --success:       #23835c;
+  --success-soft:  #e9f6ef;
+  --warning:       #b7791f;
+  --warning-soft:  #fff5dc;
+  --danger:        #c84848;
+  --danger-soft:   #fff0f0;
+
+  --shadow-sm:     0 1px 3px rgba(25,55,67,.06);
+  --shadow-md:     0 4px 14px rgba(25,55,67,.08);
+  --shadow-lg:     0 8px 28px rgba(25,55,67,.10);
+  --shadow-xl:     0 20px 60px rgba(25,55,67,.14);
+
+  --radius-sm:     8px;
+  --radius:        14px;
+  --radius-lg:     18px;
+  --radius-pill:   999px;
+
+  --space-1:       4px;
+  --space-2:       8px;
+  --space-3:       12px;
+  --space-4:       16px;
+  --space-5:       20px;
+  --space-6:       24px;
+  --space-8:       32px;
+  --space-10:      40px;
+
+  --font-size:     16px;
+  --font-family:   Inter, ui-sans-serif, system-ui, -apple-system,
+                   "Segoe UI", Roboto, sans-serif;
+  --font-mono:     ui-monospace, "SF Mono", Menlo, monospace;
+
+  --header-h:      64px;
+  --content-max:   1180px;
+
+  --transition:    150ms cubic-bezier(.4,0,.2,1);
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme="dark"] {
+  --bg:            #111618;
+  --surface:       #192023;
+  --surface-2:     #222d31;
+  --surface-3:     #2c383d;
+  --text:          #f0f5f6;
+  --text-muted:    #a6b3b8;
+  --text-faint:    #6f7c81;
+  --line:          #344146;
+  --line-strong:   #46545a;
+
+  --accent:        #71c3d5;
+  --accent-soft:   #183941;
+
+  --success:       #4fbf8b;
+  --success-soft:  #16332a;
+  --warning:       #e0b352;
+  --warning-soft:  #3a2f18;
+  --danger:        #f07c7c;
+  --danger-soft:   #3a1e1e;
+
+  --shadow-sm:     0 1px 3px rgba(0,0,0,.3);
+  --shadow-md:     0 4px 14px rgba(0,0,0,.4);
+  --shadow-lg:     0 8px 28px rgba(0,0,0,.5);
+  --shadow-xl:     0 20px 60px rgba(0,0,0,.6);
+}
+
+/* ---------- True Black (AMOLED) ---------- */
+[data-theme="dark"][data-amoled="true"] {
+  --bg:            #000000;
+  --surface:       #070909;
+  --surface-2:     #101415;
+  --surface-3:     #1a1f21;
+  --line:          #262d30;
+}
+
+/* ---------- High contrast ---------- */
+[data-contrast="true"] {
+  --line:          #718087;
+  --text-muted:    #4a585e;
+  --text-faint:    #5c6a70;
+}
+[data-theme="dark"][data-contrast="true"] {
+  --line:          #8fa0a8;
+  --text-muted:    #c8d4d8;
+}
+
+/* ---------- Compact ---------- */
+[data-compact="true"] {
+  --radius:        10px;
+  --radius-lg:     12px;
+  --space-4:       12px;
+  --space-5:       14px;
+  --space-6:       18px;
+}
+
+/* ---------- Font size presets ---------- */
+[data-font="small"]  { --font-size: 14px; }
+[data-font="medium"] { --font-size: 16px; }
+[data-font="large"]  { --font-size: 18px; }
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body { min-height: 100vh; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+button { cursor: pointer; user-select: none; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+input, textarea { background: transparent; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img, svg { display: block; max-width: 100%; }
+
+/* ---------- Typography ---------- */
+h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+h2 { font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.3; }
+h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.35; }
+h4 { font-size: .78rem; font-weight: 800; letter-spacing: .08em;
+     text-transform: uppercase; color: var(--text-muted); }
+p  { line-height: 1.55; }
+small { font-size: .8rem; }
+
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--text-muted); }
+.faint { color: var(--text-faint); }
+.italic { font-style: italic; }
+.strike { text-decoration: line-through; }
+.bold { font-weight: 700; }
+.uppercase { text-transform: uppercase; letter-spacing: .06em; }
+
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-danger  { color: var(--danger); }
+.text-accent  { color: var(--accent); }
+
+/* ---------- Layout primitives ---------- */
+.row { display: flex; align-items: center; gap: var(--space-2); }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.col { display: flex; flex-direction: column; gap: var(--space-2); }
+.wrap { flex-wrap: wrap; }
+.grow { flex: 1; }
+.center { display: grid; place-items: center; }
+
+.hidden { display: none !important; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* ---------- Focus ring ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Selection ---------- */
+::selection { background: var(--accent-soft); color: var(--accent); }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+[data-performance="true"] * {
+  animation-duration: .01ms !important;
+  transition-duration: .01ms !important;
+}

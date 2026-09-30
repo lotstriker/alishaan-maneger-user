@@ -1,0 +1,195 @@
+/* ============================================================
+   ALISHAN · RESPONSIVE
+   Mobile-first breakpoints. Loaded last so it wins overrides.
+   ============================================================ */
+
+/* ---------- Extra small (< 380px) — older phones ---------- */
+@media (max-width: 379px) {
+  :root {
+    --font-size: 14px;
+    --space-4: 12px;
+    --space-5: 14px;
+    --space-6: 18px;
+  }
+
+  .page-content { padding: 14px 10px 40px; }
+  .page-head h1 { font-size: 1.25rem; }
+
+  .topbar-inner { gap: 8px; padding: 0 12px; }
+  .topbar .brand-sub { display: none; }
+  .topbar .brand-name { font-size: .72rem; }
+  .topbar .nav button { padding: 6px 8px; font-size: .72rem; }
+
+  .overview-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .overview-card { padding: 10px; }
+  .overview-card .value { font-size: 1.2rem; }
+  .overview-card .head { font-size: .68rem; }
+
+  .stat-box > .cell { padding: 7px 4px; }
+  .stat-box .cell .value { font-size: .82rem; }
+  .stat-box .cell .label { font-size: .55rem; }
+
+  .record-title { font-size: .85rem; }
+  .record-foot .amount { font-size: .9rem; }
+
+  .toolbar { gap: 5px; }
+  .toolbar .btn { padding: 8px 10px; font-size: .75rem; }
+
+  .choice { min-width: 38px; padding: 6px 8px; font-size: .78rem; }
+  .size-chip { min-width: 40px; font-size: .72rem; padding: 6px; }
+  .size-box { min-width: 64px; }
+  .size-box .nums > div { padding: 5px 2px; font-size: .75rem; }
+
+  .settings-nav { padding: 4px; }
+  .settings-nav button { padding: 8px 10px; font-size: .78rem; }
+
+  .details-grid { grid-template-columns: 1fr 1fr; }
+  .details-grid > div:nth-child(3n) { border-right: 1px solid var(--line); }
+  .details-grid > div:nth-child(2n) { border-right: 0; }
+  .details-grid > div:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .details-grid > div:nth-last-child(-n+2) { border-bottom: 0; }
+
+  .modal { padding: 16px; }
+  .toast { right: 12px; left: 12px; bottom: 12px; max-width: none; }
+}
+
+/* ---------- Small phones (380-640px) ---------- */
+@media (max-width: 639px) {
+  .page-content { padding: 18px 14px 50px; }
+  .page-head { flex-direction: column; align-items: stretch; gap: 10px; }
+  .page-head h1 { font-size: 1.4rem; }
+  .page-head .btn { align-self: flex-start; }
+
+  .overview-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+  .toolbar { gap: 6px; }
+  .toolbar .search { flex: 1 1 100%; }
+  .toolbar .btn { flex: 0 1 auto; }
+
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid .full { grid-column: auto; }
+
+  .settings-layout { grid-template-columns: 1fr; }
+  .settings-nav {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 6px;
+    gap: 4px;
+  }
+  .settings-nav button {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .topbar-inner {
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 8px;
+    min-height: auto;
+  }
+  .topbar .nav {
+    order: 3;
+    flex-basis: 100%;
+    overflow-x: auto;
+    padding-top: 6px;
+  }
+  .topbar .nav button {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 6px;
+    font-size: .78rem;
+  }
+  .topbar .user-menu .name { display: none; }
+
+  /* Chart safety */
+  .doughnut-wrap { justify-content: center; }
+  .hbar-row { grid-template-columns: 70px 1fr 56px; font-size: .68rem; }
+  .bar-chart { height: 160px; }
+
+  /* Table-ish safety */
+  .details-grid { grid-template-columns: 1fr 1fr; }
+  .details-grid > div:nth-child(3n) { border-right: 1px solid var(--line); }
+  .details-grid > div:nth-child(2n) { border-right: 0; }
+  .details-grid > div:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .details-grid > div:nth-last-child(-n+2) { border-bottom: 0; }
+
+  .colour-display .color-cell { flex-basis: 33.33%; min-width: 60px; }
+
+  .report-period-card .stat-box > .cell {
+    padding: 8px 4px;
+  }
+  .report-period-card .stat-box .cell .value {
+    font-size: .82rem;
+  }
+}
+
+/* ---------- Medium (640-899px) — large phones, small tablets ---------- */
+@media (min-width: 640px) and (max-width: 899px) {
+  .overview-grid { grid-template-columns: repeat(3, 1fr); }
+  .page-head h1 { font-size: 1.6rem; }
+  .settings-layout { grid-template-columns: 180px 1fr; }
+}
+
+/* ---------- Large (900px+) ---------- */
+@media (min-width: 900px) {
+  .overview-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- Extra large (1200px+) ---------- */
+@media (min-width: 1200px) {
+  .overview-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* ---------- Portrait phone optimization ---------- */
+@media (max-width: 480px) and (orientation: portrait) {
+  .size-box { min-width: 68px; }
+  .size-row { gap: 4px; }
+  .size-chip { min-width: 42px; }
+
+  .color-swatches { grid-template-columns: 1fr; }
+  .swatches { grid-template-columns: 1fr; }
+
+  .expanded { padding: 12px 12px 14px; }
+  .record-head { padding: 12px 12px 10px; }
+}
+
+/* ---------- Landscape phone optimization ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .topbar-inner { min-height: 48px; padding: 6px 14px; }
+  .page-content { padding: 14px 14px 30px; }
+
+  .overview-grid { grid-template-columns: repeat(4, 1fr); }
+  .overview-card { padding: 10px; }
+  .overview-card .value { font-size: 1.15rem; margin-top: 8px; }
+
+  .login-shell { padding: 16px; }
+  .login-card { padding: 26px 22px 22px; border-radius: 20px; }
+  .login-card h1 { margin-top: 22px; font-size: 1.4rem; }
+}
+
+/* ---------- Tablet / iPad (768-1024px portrait) ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-content { padding: 24px 20px 60px; }
+  .overview-grid { grid-template-columns: repeat(3, 1fr); }
+  .settings-layout { grid-template-columns: 200px 1fr; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .topbar, .toolbar, .pagination, .form-actions, .btn, .switch,
+  #toast-root, #modal-root { display: none !important; }
+  body { background: #fff; color: #000; }
+  .card { box-shadow: none; border: 1px solid #ccc; }
+  .page-content { padding: 0; max-width: none; }
+  .record { page-break-inside: avoid; }
+}
